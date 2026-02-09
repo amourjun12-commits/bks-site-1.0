@@ -16,46 +16,9 @@ export default function Footer() {
     message: '',
   });
 
+  // Scroll animation removed
   useLayoutEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const ctx = gsap.context(() => {
-      gsap.fromTo(leftRef.current,
-        { y: 24, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.6,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: leftRef.current,
-            start: 'top 80%',
-            end: 'top 55%',
-            scrub: true,
-          }
-        }
-      );
-
-      gsap.fromTo(formRef.current,
-        { y: 40, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.6,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: formRef.current,
-            start: 'top 85%',
-            end: 'top 60%',
-            scrub: true,
-          }
-        }
-      );
-
-    }, section);
-
-    return () => ctx.revert();
+    // Optional: Simple entrance if needed
   }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -67,7 +30,7 @@ export default function Footer() {
   };
 
   return (
-    <footer 
+    <footer
       ref={sectionRef}
       id="contact"
       className="relative bg-bks-blackLifted py-20 lg:py-28"
@@ -79,12 +42,12 @@ export default function Footer() {
             <h2 className="font-sora font-bold text-3xl sm:text-4xl lg:text-5xl text-bks-white uppercase mb-6">
               Contactez<br />BKS
             </h2>
-            
+
             <p className="font-inter text-base text-bks-gray leading-relaxed mb-10">
-              Une question ? Besoin d'une quantité spécifique ? Écrivez-nous. 
+              Une question ? Besoin d'une quantité spécifique ? Écrivez-nous.
               Nous répondons sous l'heure en journée.
             </p>
-            
+
             <div className="space-y-6">
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-full bg-bks-orange/10 flex items-center justify-center">
@@ -97,7 +60,7 @@ export default function Footer() {
                   </a>
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-full bg-bks-orange/10 flex items-center justify-center">
                   <Phone className="w-5 h-5 text-bks-orange" />
@@ -109,7 +72,7 @@ export default function Footer() {
                   </a>
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-full bg-bks-orange/10 flex items-center justify-center">
                   <MapPin className="w-5 h-5 text-bks-orange" />
@@ -121,7 +84,7 @@ export default function Footer() {
                   </p>
                 </div>
               </div>
-              
+
               <div className="flex items-center gap-4">
                 <div className="w-10 h-10 rounded-full bg-bks-orange/10 flex items-center justify-center">
                   <Clock className="w-5 h-5 text-bks-orange" />
@@ -142,7 +105,7 @@ export default function Footer() {
               <h3 className="font-sora font-bold text-xl text-bks-white mb-6">
                 Envoyer un message
               </h3>
-              
+
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
@@ -172,7 +135,7 @@ export default function Footer() {
                     />
                   </div>
                 </div>
-                
+
                 <div>
                   <label className="block font-mono text-xs text-bks-gray uppercase mb-2">
                     Email (optionnel)
@@ -185,7 +148,7 @@ export default function Footer() {
                     placeholder="votre@email.com"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block font-mono text-xs text-bks-gray uppercase mb-2">
                     Message
@@ -199,7 +162,7 @@ export default function Footer() {
                     placeholder="Décrivez votre besoin..."
                   />
                 </div>
-                
+
                 <button
                   type="submit"
                   className="w-full btn-primary flex items-center justify-center gap-2"
@@ -218,12 +181,12 @@ export default function Footer() {
             <span className="font-sora font-bold text-2xl text-bks-white">BKS</span>
             <span className="font-inter text-sm text-bks-gray">Construction</span>
           </div>
-          
+
           <p className="font-inter text-sm text-bks-gray text-center">
             © 2026 BKS Construction — Bâtissons Vos Rêves, Livrons l'Excellence
           </p>
-          
-          <a 
+
+          <a
             href="https://wa.me/229XXXXXXXX"
             target="_blank"
             rel="noopener noreferrer"

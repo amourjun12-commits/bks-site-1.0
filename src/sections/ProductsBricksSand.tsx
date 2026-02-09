@@ -11,62 +11,13 @@ export default function ProductsBricksSand() {
   const cardARef = useRef<HTMLDivElement>(null);
   const cardBRef = useRef<HTMLDivElement>(null);
 
+  // Scroll animation removed
   useLayoutEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const ctx = gsap.context(() => {
-      const scrollTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: 'top top',
-          end: '+=120%',
-          pin: true,
-          scrub: 0.5,
-        }
-      });
-
-      // ENTRANCE (0-30%)
-      scrollTl.fromTo(cardARef.current,
-        { x: '-60vw', rotate: -2, opacity: 0 },
-        { x: 0, rotate: 0, opacity: 1, ease: 'none' },
-        0
-      );
-
-      scrollTl.fromTo(cardBRef.current,
-        { x: '60vw', rotate: 2, opacity: 0 },
-        { x: 0, rotate: 0, opacity: 1, ease: 'none' },
-        0.06
-      );
-
-      scrollTl.fromTo(labelRef.current,
-        { y: -20, opacity: 0 },
-        { y: 0, opacity: 1, ease: 'none' },
-        0
-      );
-
-      // SETTLE (30-70%): Hold
-
-      // EXIT (70-100%) - smooth exit
-      scrollTl.fromTo(cardARef.current,
-        { x: 0, opacity: 1 },
-        { x: '-20vw', opacity: 0, ease: 'power2.in' },
-        0.65
-      );
-
-      scrollTl.fromTo(cardBRef.current,
-        { x: 0, opacity: 1 },
-        { x: '20vw', opacity: 0, ease: 'power2.in' },
-        0.65
-      );
-
-    }, section);
-
-    return () => ctx.revert();
+    // Optional: Simple entrance if needed, or static
   }, []);
 
   return (
-    <section 
+    <section
       ref={sectionRef}
       id="products"
       className="section-pinned bg-bks-black flex items-center"
@@ -80,18 +31,18 @@ export default function ProductsBricksSand() {
         {/* Two Product Cards */}
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-[3vw]">
           {/* Card A - Briques */}
-          <div 
+          <div
             ref={cardARef}
             className="relative w-full lg:w-[41vw] h-[50vh] lg:h-[62vh] rounded-3xl overflow-hidden group cursor-pointer"
           >
-            <img 
-              src="/product_bricks.jpg" 
+            <img
+              src="/product_bricks.jpg"
               alt="Briques en béton"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
             {/* Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-bks-black/90 via-bks-black/30 to-transparent" />
-            
+
             {/* Content */}
             <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
               <h3 className="font-sora font-bold text-3xl lg:text-4xl text-bks-white uppercase mb-2">
@@ -104,7 +55,7 @@ export default function ProductsBricksSand() {
 
             {/* Arrow Button */}
             <div className="absolute bottom-6 right-6 lg:bottom-8 lg:right-8">
-              <a 
+              <a
                 href="https://wa.me/229XXXXXXXX?text=Bonjour,%20je%20souhaite%20commander%20des%20briques"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -116,18 +67,18 @@ export default function ProductsBricksSand() {
           </div>
 
           {/* Card B - Sable */}
-          <div 
+          <div
             ref={cardBRef}
             className="relative w-full lg:w-[41vw] h-[50vh] lg:h-[62vh] rounded-3xl overflow-hidden group cursor-pointer"
           >
-            <img 
-              src="/product_sand.jpg" 
+            <img
+              src="/product_sand.jpg"
               alt="Sable de construction"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
             {/* Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-bks-black/90 via-bks-black/30 to-transparent" />
-            
+
             {/* Content */}
             <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
               <h3 className="font-sora font-bold text-3xl lg:text-4xl text-bks-white uppercase mb-2">
@@ -140,7 +91,7 @@ export default function ProductsBricksSand() {
 
             {/* Arrow Button */}
             <div className="absolute bottom-6 right-6 lg:bottom-8 lg:right-8">
-              <a 
+              <a
                 href="https://wa.me/229XXXXXXXX?text=Bonjour,%20je%20souhaite%20commander%20du%20sable"
                 target="_blank"
                 rel="noopener noreferrer"

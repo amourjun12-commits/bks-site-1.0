@@ -24,16 +24,15 @@ export default function Navigation() {
   return (
     <>
       {/* Fixed Navigation */}
-      <nav 
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
-          isScrolled 
-            ? 'bg-bks-black/90 backdrop-blur-md py-4' 
-            : 'bg-transparent py-6'
-        }`}
+      <nav
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${isScrolled
+            ? 'bg-bks-black/90 backdrop-blur-md py-3'
+            : 'bg-transparent py-4'
+          }`}
       >
         <div className="w-full px-6 lg:px-12 flex items-center justify-between">
           {/* Logo */}
-          <button 
+          <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="font-sora font-bold text-2xl text-bks-white hover:text-bks-orange transition-colors"
           >
@@ -42,31 +41,31 @@ export default function Navigation() {
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-8">
-            <button 
+            <button
               onClick={() => scrollToSection('products')}
               className="font-inter text-sm text-bks-gray hover:text-bks-white transition-colors"
             >
               Produits
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('delivery')}
               className="font-inter text-sm text-bks-gray hover:text-bks-white transition-colors"
             >
               Livraison
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('process')}
               className="font-inter text-sm text-bks-gray hover:text-bks-white transition-colors"
             >
               Processus
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('coverage')}
               className="font-inter text-sm text-bks-gray hover:text-bks-white transition-colors"
             >
               Zones
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('contact')}
               className="font-inter text-sm text-bks-gray hover:text-bks-white transition-colors"
             >
@@ -76,7 +75,7 @@ export default function Navigation() {
 
           {/* CTA Button */}
           <div className="flex items-center gap-4">
-            <a 
+            <a
               href="https://wa.me/229XXXXXXXX"
               target="_blank"
               rel="noopener noreferrer"
@@ -85,9 +84,9 @@ export default function Navigation() {
               <Phone className="w-4 h-4" />
               Commander
             </a>
-            
+
             {/* Mobile Menu Button */}
-            <button 
+            <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="lg:hidden p-2 text-bks-white"
             >
@@ -98,43 +97,42 @@ export default function Navigation() {
       </nav>
 
       {/* Mobile Menu Overlay */}
-      <div 
-        className={`fixed inset-0 z-50 bg-bks-black/98 backdrop-blur-xl transition-all duration-500 lg:hidden ${
-          isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-        }`}
+      <div
+        className={`fixed inset-0 z-50 bg-bks-black/98 backdrop-blur-xl transition-all duration-500 lg:hidden ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          }`}
       >
         <div className="flex flex-col items-center justify-center h-full gap-8">
-          <button 
+          <button
             onClick={() => scrollToSection('products')}
             className="font-sora text-2xl text-bks-white hover:text-bks-orange transition-colors"
           >
             Produits
           </button>
-          <button 
+          <button
             onClick={() => scrollToSection('delivery')}
             className="font-sora text-2xl text-bks-white hover:text-bks-orange transition-colors"
           >
             Livraison
           </button>
-          <button 
+          <button
             onClick={() => scrollToSection('process')}
             className="font-sora text-2xl text-bks-white hover:text-bks-orange transition-colors"
           >
             Processus
           </button>
-          <button 
+          <button
             onClick={() => scrollToSection('coverage')}
             className="font-sora text-2xl text-bks-white hover:text-bks-orange transition-colors"
           >
             Zones
           </button>
-          <button 
+          <button
             onClick={() => scrollToSection('contact')}
             className="font-sora text-2xl text-bks-white hover:text-bks-orange transition-colors"
           >
             Contact
           </button>
-          <a 
+          <a
             href="https://wa.me/229XXXXXXXX"
             target="_blank"
             rel="noopener noreferrer"
@@ -144,8 +142,8 @@ export default function Navigation() {
             Commander sur WhatsApp
           </a>
         </div>
-        
-        <button 
+
+        <button
           onClick={() => setIsMenuOpen(false)}
           className="absolute top-6 right-6 p-2 text-bks-white"
         >

@@ -28,66 +28,13 @@ export default function ProcessSupport() {
   const imageRef = useRef<HTMLDivElement>(null);
   const stepsRef = useRef<(HTMLDivElement | null)[]>([]);
 
+  // Scroll animation removed
   useLayoutEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const ctx = gsap.context(() => {
-      const scrollTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: 'top top',
-          end: '+=120%',
-          pin: true,
-          scrub: 0.5,
-        }
-      });
-
-      // ENTRANCE (0-30%)
-      scrollTl.fromTo(textRef.current,
-        { x: '-40vw', opacity: 0 },
-        { x: 0, opacity: 1, ease: 'none' },
-        0
-      );
-
-      scrollTl.fromTo(imageRef.current,
-        { x: '70vw', opacity: 0 },
-        { x: 0, opacity: 1, ease: 'none' },
-        0.08
-      );
-
-      // Steps reveal
-      stepsRef.current.forEach((step, index) => {
-        if (!step) return;
-        scrollTl.fromTo(step,
-          { y: 18, opacity: 0 },
-          { y: 0, opacity: 1, ease: 'none' },
-          0.14 + index * 0.04
-        );
-      });
-
-      // SETTLE (30-70%): Hold
-
-      // EXIT (70-100%) - smooth exit
-      scrollTl.fromTo(textRef.current,
-        { x: 0, opacity: 1 },
-        { x: '-15vw', opacity: 0, ease: 'power2.in' },
-        0.65
-      );
-
-      scrollTl.fromTo(imageRef.current,
-        { x: 0, opacity: 1 },
-        { x: '15vw', opacity: 0, ease: 'power2.in' },
-        0.65
-      );
-
-    }, section);
-
-    return () => ctx.revert();
+    // Optional: Simple entrance if needed
   }, []);
 
   return (
-    <section 
+    <section
       ref={sectionRef}
       className="section-pinned bg-bks-black flex items-center"
     >
@@ -97,12 +44,12 @@ export default function ProcessSupport() {
           <div className="label-mono mb-6">
             SUIVI
           </div>
-          
+
           <h2 className="font-sora font-extrabold text-4xl sm:text-5xl lg:text-6xl text-bks-white uppercase leading-[0.95] tracking-tight mb-10">
             Support<br />
             <span className="text-bks-orange">& Suivi</span>
           </h2>
-          
+
           <div className="space-y-6">
             {steps.map((step, index) => (
               <div
@@ -129,13 +76,13 @@ export default function ProcessSupport() {
         </div>
 
         {/* Right Image Card */}
-        <div 
+        <div
           ref={imageRef}
           className="w-full lg:w-[44vw] h-[45vh] lg:h-[64vh] relative z-10 order-1 lg:order-2"
         >
           <div className="absolute inset-0 rounded-3xl overflow-hidden shadow-card">
-            <img 
-              src="/support_workers.jpg" 
+            <img
+              src="/support_workers.jpg"
               alt="Ouvriers sur chantier"
               className="w-full h-full object-cover"
             />

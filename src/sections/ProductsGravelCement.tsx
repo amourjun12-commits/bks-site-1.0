@@ -10,56 +10,13 @@ export default function ProductsGravelCement() {
   const cardCRef = useRef<HTMLDivElement>(null);
   const cardDRef = useRef<HTMLDivElement>(null);
 
+  // Scroll animation removed
   useLayoutEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const ctx = gsap.context(() => {
-      const scrollTl = gsap.timeline({
-        scrollTrigger: {
-          trigger: section,
-          start: 'top top',
-          end: '+=120%',
-          pin: true,
-          scrub: 0.5,
-        }
-      });
-
-      // ENTRANCE (0-30%)
-      scrollTl.fromTo(cardCRef.current,
-        { x: '-60vw', rotate: -2, opacity: 0 },
-        { x: 0, rotate: 0, opacity: 1, ease: 'none' },
-        0
-      );
-
-      scrollTl.fromTo(cardDRef.current,
-        { x: '60vw', rotate: 2, opacity: 0 },
-        { x: 0, rotate: 0, opacity: 1, ease: 'none' },
-        0.06
-      );
-
-      // SETTLE (30-70%): Hold
-
-      // EXIT (70-100%) - smooth exit with slight vertical drift
-      scrollTl.fromTo(cardCRef.current,
-        { x: 0, y: 0, opacity: 1 },
-        { x: '-20vw', y: '4vh', opacity: 0, ease: 'power2.in' },
-        0.65
-      );
-
-      scrollTl.fromTo(cardDRef.current,
-        { x: 0, y: 0, opacity: 1 },
-        { x: '20vw', y: '4vh', opacity: 0, ease: 'power2.in' },
-        0.65
-      );
-
-    }, section);
-
-    return () => ctx.revert();
+    // Optional: Simple entrance if needed
   }, []);
 
   return (
-    <section 
+    <section
       ref={sectionRef}
       className="section-pinned bg-bks-black flex items-center"
     >
@@ -67,18 +24,18 @@ export default function ProductsGravelCement() {
         {/* Two Product Cards */}
         <div className="flex flex-col lg:flex-row gap-6 lg:gap-[3vw]">
           {/* Card C - Gravier */}
-          <div 
+          <div
             ref={cardCRef}
             className="relative w-full lg:w-[41vw] h-[50vh] lg:h-[62vh] rounded-3xl overflow-hidden group cursor-pointer"
           >
-            <img 
-              src="/product_gravel.jpg" 
+            <img
+              src="/product_gravel.jpg"
               alt="Gravier de construction"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
             {/* Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-bks-black/90 via-bks-black/30 to-transparent" />
-            
+
             {/* Content */}
             <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
               <h3 className="font-sora font-bold text-3xl lg:text-4xl text-bks-white uppercase mb-2">
@@ -91,7 +48,7 @@ export default function ProductsGravelCement() {
 
             {/* Arrow Button */}
             <div className="absolute bottom-6 right-6 lg:bottom-8 lg:right-8">
-              <a 
+              <a
                 href="https://wa.me/229XXXXXXXX?text=Bonjour,%20je%20souhaite%20commander%20du%20gravier"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -103,18 +60,18 @@ export default function ProductsGravelCement() {
           </div>
 
           {/* Card D - Ciment */}
-          <div 
+          <div
             ref={cardDRef}
             className="relative w-full lg:w-[41vw] h-[50vh] lg:h-[62vh] rounded-3xl overflow-hidden group cursor-pointer"
           >
-            <img 
-              src="/product_cement.jpg" 
+            <img
+              src="/product_cement.jpg"
               alt="Ciment"
               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
             {/* Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-bks-black/90 via-bks-black/30 to-transparent" />
-            
+
             {/* Content */}
             <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
               <h3 className="font-sora font-bold text-3xl lg:text-4xl text-bks-white uppercase mb-2">
@@ -127,7 +84,7 @@ export default function ProductsGravelCement() {
 
             {/* Arrow Button */}
             <div className="absolute bottom-6 right-6 lg:bottom-8 lg:right-8">
-              <a 
+              <a
                 href="https://wa.me/229XXXXXXXX?text=Bonjour,%20je%20souhaite%20commander%20du%20ciment"
                 target="_blank"
                 rel="noopener noreferrer"

@@ -43,56 +43,13 @@ export default function BentoGrid() {
   const headerRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
+  // Scroll animation removed
   useLayoutEffect(() => {
-    const section = sectionRef.current;
-    if (!section) return;
-
-    const ctx = gsap.context(() => {
-      // Header animation
-      gsap.fromTo(headerRef.current,
-        { y: 24, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 0.6,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: headerRef.current,
-            start: 'top 80%',
-            end: 'top 55%',
-            scrub: true,
-          }
-        }
-      );
-
-      // Cards animation
-      cardsRef.current.forEach((card, index) => {
-        if (!card) return;
-        gsap.fromTo(card,
-          { y: 40, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.5,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: card,
-              start: 'top 85%',
-              end: 'top 60%',
-              scrub: true,
-            },
-            delay: index * 0.08,
-          }
-        );
-      });
-
-    }, section);
-
-    return () => ctx.revert();
+    // Optional: Simple entrance if needed
   }, []);
 
   return (
-    <section 
+    <section
       ref={sectionRef}
       className="relative bg-bks-blackLifted py-20 lg:py-28"
     >
@@ -118,11 +75,11 @@ export default function BentoGrid() {
               <div className="w-12 h-12 rounded-xl bg-bks-orange/10 flex items-center justify-center mb-6 group-hover:bg-bks-orange/20 transition-colors">
                 <feature.icon className="w-6 h-6 text-bks-orange" />
               </div>
-              
+
               <h3 className="font-sora font-bold text-xl text-bks-white mb-3">
                 {feature.title}
               </h3>
-              
+
               <p className="font-inter text-sm text-bks-gray leading-relaxed">
                 {feature.description}
               </p>
