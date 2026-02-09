@@ -55,7 +55,7 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="section-pinned bg-bks-black flex items-start lg:items-center pt-40 sm:pt-48 lg:pt-28"
+      className="section-pinned bg-bks-black flex items-start lg:items-center pt-32 sm:pt-40 lg:pt-28"
     >
       <div className="w-full px-6 lg:px-[6vw] flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0">
         {/* Left Text Block */}
