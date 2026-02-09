@@ -26,8 +26,8 @@ export default function Navigation() {
       {/* Fixed Navigation */}
       <nav
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${isScrolled
-            ? 'bg-bks-black/90 backdrop-blur-md py-3'
-            : 'bg-transparent py-4'
+          ? 'bg-bks-black/90 backdrop-blur-md py-3'
+          : 'bg-transparent py-4 lg:py-6'
           }`}
       >
         <div className="w-full px-6 lg:px-12 flex items-center justify-between">
@@ -98,7 +98,7 @@ export default function Navigation() {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 z-50 bg-bks-black/98 backdrop-blur-xl transition-all duration-500 lg:hidden ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        className={`fixed inset-0 z-50 bg-bks-black/98 backdrop-blur-xl transition-all duration-300 lg:hidden ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
           }`}
       >
         <div className="flex flex-col items-center justify-center h-full gap-8">

@@ -55,9 +55,9 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="section-pinned bg-bks-black flex items-center pt-28"
+      className="section-pinned bg-bks-black flex items-center pt-24 lg:pt-28"
     >
-      <div className="w-full px-6 lg:px-[6vw] flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-0">
+      <div className="w-full px-6 lg:px-[6vw] flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-0">
         {/* Left Text Block */}
         <div ref={textRef} className="w-full lg:w-[40vw] lg:pr-8 z-10">
           <div ref={labelRef} className="label-mono mb-6">
@@ -66,7 +66,7 @@ export default function Hero() {
 
           <h1
             ref={headlineRef}
-            className="font-sora font-extrabold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-bks-white uppercase leading-[0.95] tracking-tight mb-6"
+            className="font-sora font-extrabold text-4xl sm:text-5xl lg:text-7xl text-bks-white uppercase leading-[0.95] tracking-tight mb-6"
           >
             Matériaux<br />
             de Chantier
