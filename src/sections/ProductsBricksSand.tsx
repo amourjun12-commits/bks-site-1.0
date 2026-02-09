@@ -20,7 +20,7 @@ export default function ProductsBricksSand() {
     <section
       ref={sectionRef}
       id="products"
-      className="section-pinned bg-bks-black flex items-center"
+      className="section-pinned bg-bks-black flex items-center pt-20 lg:pt-32"
     >
       <div className="w-full px-6 lg:px-[6vw]">
         {/* Section Label */}
